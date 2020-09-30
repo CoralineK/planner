@@ -14,11 +14,11 @@ const config = {
 
 app.apps.length === 0 && app.initializeApp(config);
 
-export function createAccount(email, password) {
+export function createAccount(email: string, password: string) {
   return app.auth().createUserWithEmailAndPassword(email, password);
 }
 
-export function signInUser(email, password) {
+export function signInUser(email: string, password: string) {
   return app.auth().signInWithEmailAndPassword(email, password);
 }
 
