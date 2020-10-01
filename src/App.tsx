@@ -1,12 +1,12 @@
 import React from 'react';
-import Auth from './pages/Auth';
 import Global from './style/Global';
+import Router from './Router';
 
 function App() {
   return (
     <>
       <Global />
-      <Auth />
+      <Router />
     </>
   );
 }

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import { colors } from '../../Theme';
 
 export const ButtonContainer = styled.div`
   padding: 10px;
@@ -18,11 +19,11 @@ export const useStyles = makeStyles((theme: Theme) =>
       },
     },
     button: {
-      backgroundColor: '#80005d',
+      backgroundColor: colors.primary,
       color: 'white',
       fontSize: 18,
       '&:hover': {
-        backgroundColor: '#c4008f',
+        backgroundColor: colors.change,
       },
     },
   })

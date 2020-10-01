@@ -1,22 +1,19 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import Auth from './pages/Auth';
 
-function App() {
+export default function Router() {
   return (
-    <div>
+    <BrowserRouter>
       <Switch>
-        <Route path="/">
+        <Route exact path="/">
+          <Auth />
+        </Route>
+        <Route path="/home">
           <Home />
         </Route>
       </Switch>
-    </div>
+    </BrowserRouter>
   );
 }
-
-ReactDOM.render(
-  <Router>
-    <App />
-  </Router>,
-  document.getElementById('root')
-);

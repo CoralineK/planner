@@ -2,13 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 import SignUp from './RegisterForm';
 import SignIn from './LogInForm';
+import { colors } from '../../Theme';
 
 const Box = styled.div`
   width: 500px;
   height: 500px;
   padding: 50px;
   margin: 50px;
-  background-color: rgb(240, 240, 240);
+  background-color: ${colors.paper};
   display: flex;
   flex-direction: column;
   justify-content: center;

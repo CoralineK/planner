@@ -3,6 +3,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { signInUser } from '../../services/firebase';
 import { ButtonContainer, useStyles } from './style';
+import { useHistory } from 'react-router-dom';
 
 export default function SignIn() {
   const [user, setUser] = useState({
@@ -11,11 +12,14 @@ export default function SignIn() {
   });
 
   const classes = useStyles();
+  const history = useHistory();
 
   // @ts-ignore
   const onSubmit = (e) => {
     e.preventDefault();
-    signInUser(user.email, user.password);
+    signInUser(user.email, user.password).then(() => {
+      history.push('/home');
+    });
   };
 
   return (

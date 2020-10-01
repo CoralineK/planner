@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import AuthBox from '../components/Auth/AuthBox';
+import { colors } from '../Theme';
 
 const Container = styled.div`
   width: 100%;
@@ -8,7 +9,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f0e1ec;
+  background-color: ${colors.background};
 `;
 
 function Auth() {
