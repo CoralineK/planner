@@ -25,3 +25,5 @@ export function signInUser(email: string, password: string) {
 export function signOut() {
   return app.auth().signOut();
 }
+
+export const user = app.auth().currentUser;

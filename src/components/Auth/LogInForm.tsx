@@ -4,8 +4,11 @@ import Button from '@material-ui/core/Button';
 import { signInUser } from '../../services/firebase';
 import { ButtonContainer, useStyles } from './style';
 import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { authSuccess, authError, authLoading } from '../../redux/auth/action';
 
 export default function SignIn() {
+  const dispatch = useDispatch();
   const [user, setUser] = useState({
     email: '',
     password: '',
@@ -17,9 +20,19 @@ export default function SignIn() {
   // @ts-ignore
   const onSubmit = (e) => {
     e.preventDefault();
-    signInUser(user.email, user.password).then(() => {
-      history.push('/home');
-    });
+    dispatch(authLoading());
+    signInUser(user.email, user.password)
+      .then((response) => {
+        if (!response.user?.email || !response.user?.uid) {
+          return;
+        }
+
+        dispatch(authSuccess(response.user.email, response.user.uid));
+        history.push('/home');
+      })
+      .catch((e) => {
+        dispatch(authError(e.message));
+      });
   };
 
   return (
