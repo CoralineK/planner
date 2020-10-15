@@ -9,7 +9,6 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import { colors } from '../../Theme';
-import { user } from '../../services/firebase';
 
 const drawerWidth = 240;
 
@@ -19,7 +18,16 @@ const TopItems = styled.div`
   justify-content: space-between;
   align-items: center;
 `;
-const Login = styled.div``;
+const Login = styled.div`
+  display: flex;
+  align-items: center;
+`;
+const User = styled.div`
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 16px;
+  padding-left: 10px;
+`;
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -55,9 +63,10 @@ const useStyles = makeStyles((theme: Theme) =>
 type Props = {
   handleDrawerOpen: any;
   open: boolean;
+  user: string;
 };
 
-export default function TopBar({ handleDrawerOpen, open }: Props) {
+export default function TopBar({ handleDrawerOpen, open, user }: Props) {
   const classes = useStyles();
 
   return (
@@ -84,11 +93,8 @@ export default function TopBar({ handleDrawerOpen, open }: Props) {
             LOVELY PLANNER
           </Typography>
           <Login>
-            {user ? (
-              `${(<AccountCircleIcon />)} Welcome ${user}`
-            ) : (
-              <p>No user</p>
-            )}
+            <AccountCircleIcon />
+            <User>{user}</User>
           </Login>
         </TopItems>
       </Toolbar>

@@ -2,17 +2,10 @@ import React, { useState } from 'react';
 import dayjs from 'dayjs';
 import ArrowBack from '@material-ui/icons/ArrowBack';
 import ArrowForward from '@material-ui/icons/ArrowForward';
-import { Calendar, Hour, Box, Date, AddEvent } from './Style';
-import {
-  Container,
-  Head,
-  Body,
-  Row,
-  Name,
-  Arrow,
-  Previous,
-  Next,
-} from '../CommonStyle';
+import { Calendar, Hour, Box, Date, EventContainer, Container } from './Style';
+import { Head, Body, Row, Name, Arrow, Previous, Next } from '../CommonStyle';
+import AddEvent from './AddEvent';
+import DayPage from './DayView';
 
 const DAYSOFWEEK = [
   'SUNDAY',
@@ -25,7 +18,7 @@ const DAYSOFWEEK = [
 ];
 
 const hours: React.ReactElement[] = [];
-for (let i: number = 6; i <= 22; i++) {
+for (let i: number = 0; i <= 23; i++) {
   hours.push(<Hour colSpan={1}>{i < 10 ? `0${i}:00` : `${i}:00`}</Hour>);
 }
 
@@ -36,8 +29,6 @@ export default function Day() {
     month: dayjs().month() + 1,
     year: dayjs().year(),
   });
-
-  console.log();
 
   function previousClick() {
     if (day > 0) {
@@ -59,40 +50,41 @@ export default function Day() {
   }
 
   return (
-    <>
-      <Container>
-        <AddEvent></AddEvent>
-        <Calendar>
-          <Head>
-            <Row>
-              <Arrow colSpan={1}>
-                <Previous onClick={previousClick}>
-                  <ArrowBack />
-                </Previous>
-              </Arrow>
-              <Name colSpan={5}>{DAYSOFWEEK[day]}</Name>
-              <Arrow colSpan={1}>
-                <Next onClick={nextClick}>
-                  <ArrowForward />
-                </Next>
-              </Arrow>
+    <Container>
+      <EventContainer>
+        <AddEvent year={date.year} month={dayjs().month()} day={date.day} />
+      </EventContainer>
+      <DayPage />
+      {/* <Calendar>
+        <Head>
+          <Row>
+            <Arrow colSpan={1}>
+              <Previous onClick={previousClick}>
+                <ArrowBack />
+              </Previous>
+            </Arrow>
+            <Name colSpan={5}>{DAYSOFWEEK[day]}</Name>
+            <Arrow colSpan={1}>
+              <Next onClick={nextClick}>
+                <ArrowForward />
+              </Next>
+            </Arrow>
+          </Row>
+          <Row>
+            <Date colSpan={7}>{`${date.day > 9 ? date.day : `0${date.day}`}.${
+              date.month
+            }.${date.year}`}</Date>
+          </Row>
+        </Head>
+        <Body>
+          {hours.map((hour, i) => (
+            <Row key={i}>
+              {hour}
+              <Box colSpan={6}></Box>
             </Row>
-            <Row>
-              <Date colSpan={7}>{`${date.day > 9 ? date.day : `0${date.day}`}.${
-                date.month
-              }.${date.year}`}</Date>
-            </Row>
-          </Head>
-          <Body>
-            {hours.map((hour, i) => (
-              <Row key={i}>
-                {hour}
-                <Box colSpan={6}></Box>
-              </Row>
-            ))}
-          </Body>
-        </Calendar>
-      </Container>
-    </>
+          ))}
+        </Body>
+      </Calendar> */}
+    </Container>
   );
 }

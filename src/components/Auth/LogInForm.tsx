@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import { signInUser } from '../../services/firebase';
 import { ButtonContainer, useStyles } from './style';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { authSuccess, authError, authLoading } from '../../redux/auth/action';
+import { signIn } from '../../redux/auth/thunks';
+import { AUTH_SUCCESS } from '../../redux/auth/actionTypes';
 
 export default function SignIn() {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<any>();
   const [user, setUser] = useState({
     email: '',
     password: '',
@@ -20,19 +20,11 @@ export default function SignIn() {
   // @ts-ignore
   const onSubmit = (e) => {
     e.preventDefault();
-    dispatch(authLoading());
-    signInUser(user.email, user.password)
-      .then((response) => {
-        if (!response.user?.email || !response.user?.uid) {
-          return;
-        }
-
-        dispatch(authSuccess(response.user.email, response.user.uid));
+    dispatch(signIn(user.email, user.password)).then((e: any) => {
+      if (e.type === AUTH_SUCCESS) {
         history.push('/home');
-      })
-      .catch((e) => {
-        dispatch(authError(e.message));
-      });
+      }
+    });
   };
 
   return (

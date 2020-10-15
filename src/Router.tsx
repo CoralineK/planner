@@ -10,9 +10,7 @@ export default function Router() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/">
-          <Auth />
-        </Route>
+        <Route exact path="/" component={Auth} />
         <Navigation>
           <Route path="/home" component={Home} />
           {/* <Route path="/fullyear" component={FullYear} /> */}

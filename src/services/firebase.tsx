@@ -1,5 +1,6 @@
 import app from 'firebase/app';
 import 'firebase/auth';
+import 'firebase/firestore';
 
 const config = {
   apiKey: 'AIzaSyDJBa-KUc1LDNA1TaupoFFcXSQzP54QJYs',
@@ -26,4 +27,5 @@ export function signOut() {
   return app.auth().signOut();
 }
 
-export const user = app.auth().currentUser;
+const firestore = app.firestore();
+export const eventsRef = firestore.collection('events');
