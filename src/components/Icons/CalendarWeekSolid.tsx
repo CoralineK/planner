@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { colors } from '../../Theme';
+import { colors } from '../../Constants';
 
 const Svg = styled.svg`
   width: 30px;

@@ -7,3 +7,9 @@ export const colors = {
   change: '#218380', //green
   accent: '#ffbc42', //yellow
 };
+
+export const font = `
+font-family: Roboto Slab;
+font-weight: 400;
+font-size: 20px;
+`

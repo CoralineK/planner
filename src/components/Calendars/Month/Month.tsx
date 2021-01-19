@@ -4,14 +4,13 @@ import ArrowBack from '@material-ui/icons/ArrowBack';
 import ArrowForward from '@material-ui/icons/ArrowForward';
 import { Calendar, Header, Box, Today } from './Style';
 import {
-  Container,
+  ContainerColumn,
   Head,
   Body,
   Row,
   Name,
   Arrow,
-  Previous,
-  Next,
+  Button,
 } from '../CommonStyle';
 
 const DAYSOFWEEK = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
@@ -43,13 +42,13 @@ export default function Month() {
         dayjs()
           .month(month - 1)
           .date(1)
-          .day()
+          .day(),
       );
       setLastDay(
         dayjs()
           .month(month - 1)
           .endOf('month')
-          .date()
+          .date(),
       );
     }
   }
@@ -60,13 +59,13 @@ export default function Month() {
         dayjs()
           .month(month + 1)
           .date(1)
-          .day()
+          .day(),
       );
       setLastDay(
         dayjs()
           .month(month + 1)
           .endOf('month')
-          .date()
+          .date(),
       );
     }
   }
@@ -79,7 +78,7 @@ export default function Month() {
     startBlanks.push(
       <Box key={'start' + i} className="calendar-day empty">
         {' '}
-      </Box>
+      </Box>,
     );
   }
 
@@ -91,7 +90,7 @@ export default function Month() {
         <Box key={i} className="calendar-day empty">
           {i}
         </Box>
-      )
+      ),
     );
   }
 
@@ -102,7 +101,7 @@ export default function Month() {
       finishBlanks.push(
         <Box key={'last' + i} className="calendar-day empty">
           {' '}
-        </Box>
+        </Box>,
       );
     }
   }
@@ -125,20 +124,20 @@ export default function Month() {
   });
 
   return (
-    <Container>
+    <ContainerColumn>
       <Calendar>
         <Head>
           <Row>
             <Arrow colSpan={1}>
-              <Previous onClick={previousClick}>
+              <Button onClick={previousClick}>
                 <ArrowBack />
-              </Previous>
+              </Button>
             </Arrow>
             <Name colSpan={5}>{MONTHS[month]}</Name>
             <Arrow colSpan={1}>
-              <Next onClick={nextClick}>
+              <Button onClick={nextClick}>
                 <ArrowForward />
-              </Next>
+              </Button>
             </Arrow>
           </Row>
           <Row>
@@ -153,6 +152,6 @@ export default function Month() {
           ))}
         </Body>
       </Calendar>
-    </Container>
+    </ContainerColumn>
   );
 }

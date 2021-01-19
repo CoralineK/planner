@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import { colors } from '../../Theme';
+import { colors } from '../../Constants';
 
 export const ButtonContainer = styled.div`
   padding: 10px;

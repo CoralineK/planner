@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { colors } from '../../../Theme';
+import { colors } from '../../../Constants';
 
 export const Calendar = styled.table``;
 export const Header = styled.th`

@@ -6,7 +6,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import { colors } from '../../Theme';
+import { colors } from '../../Constants';
 
 const drawerWidth = 240;
 

@@ -10,7 +10,7 @@ import Drawer from '@material-ui/core/Drawer';
 import IconButton from '@material-ui/core/IconButton';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import { colors } from '../../Theme';
+import { colors } from '../../Constants';
 import CalendarList from './CalendarList';
 
 const drawerWidth = 240;
