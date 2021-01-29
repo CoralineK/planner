@@ -24,7 +24,7 @@ time, mark, audio, video {
     padding:0;
     border:0;
     outline:0;
-    vertical-align:baseline;
+    vertical-align:middle;
     background:transparent;
 }
 

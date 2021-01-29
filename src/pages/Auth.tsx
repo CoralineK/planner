@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import AuthBox from '../components/Auth/AuthBox';
-import { colors } from '../Theme';
+import { colors } from '../Constants';
 
 const Container = styled.div`
   width: 100%;

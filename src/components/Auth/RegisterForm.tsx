@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import { createAccount } from '../../services/firebase';
-import { ButtonContainer, useStyles } from './style';
+import Submit from '../CommonComponents/ButtonSubmit';
+import { createAccount } from '../../services/auth';
+import { useStyles } from './style';
 
 export default function SignUp() {
   const [user, setUser] = useState({
@@ -16,8 +16,7 @@ export default function SignUp() {
 
   const classes = useStyles();
 
-  // @ts-ignore
-  const onSubmit = (e) => {
+  const onSubmit = (e: any) => {
     e.preventDefault();
     user.password === user.repeatPassword &&
       createAccount(user.email, user.password);
@@ -84,12 +83,7 @@ export default function SignUp() {
           />
         </>
       )}
-
-      <ButtonContainer>
-        <Button className={classes.button} variant="contained" type="submit">
-          SUBMIT
-        </Button>
-      </ButtonContainer>
+      <Submit text="submit" />
     </form>
   );
 }

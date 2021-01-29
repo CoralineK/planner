@@ -10,7 +10,7 @@ import CalendarSolid from '../Icons/CalendarSolid';
 import CalendarAltSolid from '../Icons/CalendarAltSolid';
 import CalendarWeekSolid from '../Icons/CalendarWeekSolid';
 import CalendarDaySolid from '../Icons/CalendarDaySolid';
-import { colors } from '../../Theme';
+import { colors } from '../../Constants';
 import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles((theme: Theme) =>

@@ -1,10 +1,17 @@
 import styled from 'styled-components';
-import { colors } from '../../Theme';
+import { colors, font } from '../../Constants';
 
-export const Container = styled.div`
+export const ContainerColumn = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+export const ContainerRow = styled.div`
+  height: 100%;
+  width: 100%;
+  display: flex;
   align-items: center;
   justify-content: center;
 `;
@@ -16,20 +23,29 @@ export const Arrow = styled.th`
   width: 50px;
 `;
 export const Name = styled.th`
+  ${font}
   background-color: ${colors.primary};
-  font-family: Roboto Slab;
-  font-weight: 400;
-  letter-spacing: 1.5px;
-  font-size: 20px;
   padding: 10px;
   color: white;
 `;
-const Button = styled.button`
+export const Button = styled.button`
   outline: none;
   border: none;
   background-color: rgba(0,0,0,0);
   color: ${colors.extra};
   cursor: pointer;
+  width: 24px;
+  height: 24px;
   `;
-export const Previous = styled(Button)``;
-export const Next = styled(Button)``;
+
+  // export const Notes = styled.textarea`
+//   display: flex;
+//   background-color: ${colors.background};
+//   outline: none;
+//   border: none;
+//   width: 100%;
+//   padding: 0 5px;
+//   resize: none;
+//   font-family: Roboto;
+//   font-size: 15px;
+// `;

@@ -1,98 +1,83 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
-import { Begin, Finish, Place, Event } from './Inputs';
-import { Form, FormRow, Column } from './Style';
-import Button from '@material-ui/core/Button';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { eventsRef } from '../../../services/firebase';
-import { firestore } from '../../../services/firebase';
-import { getId } from '../../../redux/auth/selectors';
-import { v4 as random } from 'uuid';
+import { colors } from '../../../Constants';
+import TextField from '@material-ui/core/TextField';
+import TimePicker from '../../CommonComponents/TimePicker';
+import ButtonSubmit from '../../CommonComponents/ButtonSubmit';
 
-const Submit = styled.div`
-  margin-left: 50px;
+const Container = styled.div`
+  width: 910px;
+  background-color: ${colors.extra};
+  margin-bottom: 2vh;
+  border-radius: 6px;
+  padding: 3vh;
+  display: flex;
+  justify-content: space-between;
 `;
-
-type TimeProps = {
-  year: number;
-  month: number;
-  day: number;
+const Form = styled.form`
+  display: flex;
+  justify-content: space-between;
+`;
+type Event = {
+  begin?: Date;
+  finish?: Date;
+  location: string;
+  title: string;
+  exist: boolean;
 };
+function AddEvent() {
+  const [event, setEvent] = useState<Event>({
+    begin: undefined,
+    finish: undefined,
+    location: '',
+    title: '',
+    exist: false,
+  });
 
-export default function AddEvent({ year, month, day }: TimeProps) {
-  const [begin, setBegin] = useState(`${new Date().getHours() + 1}:00`);
-  const [finish, setFinish] = useState(
-    `${new Date().getHours() === 23 ? '01' : new Date().getHours() + 2}:00`
-  );
+  useEffect(() => {
+    console.log(event);
+  }, [event]);
 
-  const beginArr = begin.split(':').map((e) => parseInt(e));
-  const finishArr = finish.split(':').map((e) => parseInt(e));
+  const handleOnChange = (e: any) => {
+    console.log(e.target.name);
+    setEvent({ ...event, [e.target.name]: e.target.value });
+  };
 
-  const beginTime = new Date(year, month, day, beginArr[0], beginArr[1]);
-  const finishTime = new Date(
-    year,
-    month,
-    beginArr[0] >= 23 ? day + 1 : day,
-    finishArr[0],
-    finishArr[1]
-  );
-
-  const [location, setLocation] = useState('');
-  const [event, setEvent] = useState('');
-
-  const userId = useSelector(getId);
-  const userRef = firestore.collection(`users/${userId}/events`);
-
-  // function findDoc() {
-  //   userRef
-  //     .where('exist', '==', true)
-  //     .get()
-  //     .then(function (querySnapshot) {
-  //       querySnapshot.forEach(function (doc) {
-  //         console.log(doc.data());
-  //       });
-  //     })
-  //     .catch(function (error) {
-  //       console.log('Error getting document:', error);
-  //     });
-  // }
-
-  // findDoc();
-
-  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+  const onSubmit = (e: any) => {
     e.preventDefault();
-    userRef
-      .doc(random())
-      .set({
-        exist: true,
-        title: event,
-        begin: beginTime,
-        finish: finishTime,
-        location,
-      })
-      .then(function () {
-        console.log('Document successfully written!');
-      })
-      .catch(function (error) {
-        console.error('Error writing document: ', error);
-      });
-  }
+  };
 
   return (
-    <Form onSubmit={onSubmit}>
-      <Column>
-        <FormRow>
-          <Begin onChange={(e) => setBegin(e.target.value)} begin={begin} />
-          <Finish onChange={(e) => setFinish(e.target.value)} finish={finish} />
-        </FormRow>
-        <Place onChange={(e) => setLocation(e.target.value)} />
-        <Event onChange={(e) => setEvent(e.target.value)} />
-      </Column>
-      <Submit>
-        <Button type="submit" variant="outlined">
-          Add event
-        </Button>
-      </Submit>
-    </Form>
+    <Container>
+      <Form onSubmit={onSubmit}>
+        <TimePicker
+          label="Begin"
+          name="begin"
+          extraTime={0}
+          onChange={handleOnChange}
+        />
+        <TimePicker
+          label="Finish"
+          name="finish"
+          extraTime={1}
+          onChange={handleOnChange}
+        />
+        <TextField
+          label="Location"
+          name="location"
+          style={{ width: '25%' }}
+          onChange={handleOnChange}
+        ></TextField>
+        <TextField
+          label="Event"
+          name="title"
+          style={{ width: '25%' }}
+          onChange={handleOnChange}
+        ></TextField>
+        <ButtonSubmit text="add" />
+      </Form>
+    </Container>
   );
 }
+
+export default AddEvent;

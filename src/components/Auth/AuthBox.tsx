@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import SignUp from './RegisterForm';
 import SignIn from './LogInForm';
-import { colors } from '../../Theme';
+import { colors } from '../../Constants';
 
 const Box = styled.div`
   width: 500px;
