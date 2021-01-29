@@ -19,8 +19,8 @@ const Box = styled.td`
 `;
 
 function Timetable() {
-  const [start, setStart] = useState<number>(6);
-  const [end, setEnd] = useState<number>(22);
+  const [start] = useState<number>(6);
+  const [end] = useState<number>(22);
 
   function format(number: number) {
     if (number > 9) {

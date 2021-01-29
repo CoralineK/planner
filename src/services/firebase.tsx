@@ -1,5 +1,4 @@
 import app from 'firebase/app';
-import 'firebase/auth';
 
 const config = {
   apiKey: 'AIzaSyDJBa-KUc1LDNA1TaupoFFcXSQzP54QJYs',
@@ -14,14 +13,4 @@ const config = {
 
 app.apps.length === 0 && app.initializeApp(config);
 
-export function createAccount(email: string, password: string) {
-  return app.auth().createUserWithEmailAndPassword(email, password);
-}
-
-export function signInUser(email: string, password: string) {
-  return app.auth().signInWithEmailAndPassword(email, password);
-}
-
-export function signOut() {
-  return app.auth().signOut();
-}
+export default app;

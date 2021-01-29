@@ -1,5 +1,5 @@
 import React from 'react';
-import { Name, ContainerRow } from '../CommonStyle';
+import { Name } from '../CommonStyle';
 
 const DAYSOFWEEK = [
   'SUNDAY',
