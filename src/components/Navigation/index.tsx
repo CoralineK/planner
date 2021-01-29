@@ -5,7 +5,6 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TopBar from './TopBar';
 import SideBar from './SideBar';
-import { colors } from '../../Theme';
 import { getEmail } from '../../redux/auth/selectors';
 import { colors } from '../../Constants';
 
