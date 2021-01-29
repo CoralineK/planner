@@ -14,12 +14,12 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-type PlaceBegin = {
+type BeginProps = {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   begin: string;
 };
 
-export function Begin({ onChange, begin }: PlaceBegin) {
+export function Begin({ onChange, begin }: BeginProps) {
   const classes = useStyles();
   return (
     <>
@@ -41,12 +41,12 @@ export function Begin({ onChange, begin }: PlaceBegin) {
   );
 }
 
-type PlaceFinish = {
+type FinishProps = {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   finish: string;
 };
 
-export function Finish({ onChange, finish }: PlaceFinish) {
+export function Finish({ onChange, finish }: FinishProps) {
   const classes = useStyles();
   return (
     <TextField
@@ -66,17 +66,17 @@ export function Finish({ onChange, finish }: PlaceFinish) {
   );
 }
 
-type PlaceProps = {
+type LocationProps = {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-export function Place({ onChange }: PlaceProps) {
+export function Place({ onChange }: LocationProps) {
   const classes = useStyles();
   return (
     <TextField
       className={classes.event}
-      id="place"
-      label="Place"
+      id="location"
+      label="Location"
       onChange={onChange}
     />
   );

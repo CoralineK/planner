@@ -7,12 +7,12 @@ import {
   AppointmentTooltip,
 } from '@devexpress/dx-react-scheduler-material-ui';
 
-export default function DayPage() {
+export default function DaySchedule() {
   const [data, setData] = useState();
 
   return (
     <Paper>
-      <Scheduler data={data}>
+      <Scheduler data={data} height={850}>
         <DayView startDayHour={6} endDayHour={20} />
         <Appointments />
         <AppointmentTooltip />

@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Begin, Finish, Place, Event } from './Inputs';
-import { Form, FormRow, Column } from './Style';
+import { Begin, Finish, Place, Event } from '../Inputs';
+import { Form, FormRow, Column } from '../Style';
 import Button from '@material-ui/core/Button';
 import styled from 'styled-components';
-import { eventsRef } from '../../../services/firebase';
-import { firestore } from '../../../services/firebase';
-import { getId } from '../../../redux/auth/selectors';
+import { eventsRef } from '../../../../services/firebase';
+import { getId } from '../../../../redux/auth/selectors';
 import { v4 as random } from 'uuid';
 
 const Submit = styled.div`
@@ -28,48 +27,31 @@ export default function AddEvent({ year, month, day }: TimeProps) {
   const beginArr = begin.split(':').map((e) => parseInt(e));
   const finishArr = finish.split(':').map((e) => parseInt(e));
 
-  const beginTime = new Date(year, month, day, beginArr[0], beginArr[1]);
-  const finishTime = new Date(
+  const beginMilisec = new Date(
     year,
     month,
-    beginArr[0] >= 23 ? day + 1 : day,
+    day,
+    beginArr[0],
+    beginArr[1]
+  ).getTime();
+  const finishMilisec = new Date(
+    year,
+    month,
+    beginArr[0] === 23 ? day + 1 : day,
     finishArr[0],
     finishArr[1]
-  );
+  ).getTime();
 
   const [location, setLocation] = useState('');
   const [event, setEvent] = useState('');
 
   const userId = useSelector(getId);
-  const userRef = firestore.collection(`users/${userId}/events`);
-
-  // function findDoc() {
-  //   userRef
-  //     .where('exist', '==', true)
-  //     .get()
-  //     .then(function (querySnapshot) {
-  //       querySnapshot.forEach(function (doc) {
-  //         console.log(doc.data());
-  //       });
-  //     })
-  //     .catch(function (error) {
-  //       console.log('Error getting document:', error);
-  //     });
-  // }
-
-  // findDoc();
 
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    userRef
+    eventsRef
       .doc(random())
-      .set({
-        exist: true,
-        title: event,
-        begin: beginTime,
-        finish: finishTime,
-        location,
-      })
+      .set({ userId, begin: beginMilisec, finish: finishMilisec, place: location, event })
       .then(function () {
         console.log('Document successfully written!');
       })

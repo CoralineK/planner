@@ -27,5 +27,7 @@ export function signOut() {
   return app.auth().signOut();
 }
 
-const firestore = app.firestore();
+export const firestore = app.firestore();
 export const eventsRef = firestore.collection('events');
+
+
