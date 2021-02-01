@@ -10,7 +10,7 @@ type Props = {
   label: string;
   extraTime: number;
   name: string;
-  onChange: any;
+  onChange?: any;
 };
 
 function TimePicker({ label, extraTime, name, onChange }: Props) {
@@ -24,8 +24,8 @@ function TimePicker({ label, extraTime, name, onChange }: Props) {
   );
 
   const handleDateChange = (date: Date | null) => {
+    onChange(date);
     setSelectedDate(date);
-    onChange();
   };
 
   return (

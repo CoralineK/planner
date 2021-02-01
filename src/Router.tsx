@@ -2,8 +2,8 @@ import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Auth from './pages/Auth';
-import Month from './components/Calendars/Month/Month';
-import Day from './components/Calendars/Day/Day';
+import Month from './pages/Month';
+import Day from './pages/Day';
 import Navigation from './components/Navigation';
 
 export default function Router() {

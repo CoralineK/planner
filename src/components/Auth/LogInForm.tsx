@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import TextField from '@material-ui/core/TextField';
 import Submit from '../CommonComponents/ButtonSubmit';
-import { signInUser } from '../../services/auth';
 import { useStyles } from './style';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';

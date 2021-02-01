@@ -1,7 +1,7 @@
 import { Dispatch } from 'redux';
 import { AuthAction } from './types';
 import { authError, authLoading, authSuccess } from './action';
-import { signInUser } from '../../services/firebase';
+import { signInUser } from '../../services/auth';
 
 export function signIn(email: string, password: string) {
   return async function (dispatch: Dispatch<AuthAction>) {

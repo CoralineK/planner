@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ContainerColumn } from '../CommonStyle';
-import AddEvent from './AddEvent';
-import PagingDate from './PagingDate';
-import Timetable from './Timetable';
+import { ContainerColumn } from '../components/Calendars/CommonStyle';
+import AddEvent from '../components/Calendars/Day/AddEvent';
+import PagingDate from '../components/Calendars/Day/PagingDate';
+import Timetable from '../components/Calendars/Day/Timetable';
 
 const Calendar = styled.table`
   height: 70vh;

@@ -39,8 +39,12 @@ function AddEvent() {
   }, [event]);
 
   const handleOnChange = (e: any) => {
-    console.log(e.target.name);
     setEvent({ ...event, [e.target.name]: e.target.value });
+  };
+
+  const handleOnChoose = (date: any) => {
+    console.log(date);
+    // setEvent({ ...event, [e.target.name]: e.target.value });
   };
 
   const onSubmit = (e: any) => {
@@ -54,13 +58,13 @@ function AddEvent() {
           label="Begin"
           name="begin"
           extraTime={0}
-          onChange={handleOnChange}
+          onChange={handleOnChoose}
         />
         <TimePicker
           label="Finish"
           name="finish"
           extraTime={1}
-          onChange={handleOnChange}
+          onChange={handleOnChoose}
         />
         <TextField
           label="Location"

@@ -8,7 +8,6 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import { colors } from '../../Theme';
 import { colors } from '../../Constants';
 
 const drawerWidth = 240;
@@ -58,7 +57,7 @@ const useStyles = makeStyles((theme: Theme) =>
     title: {
       fontFamily: 'Roboto Slab',
     },
-  })
+  }),
 );
 
 type Props = {

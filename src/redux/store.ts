@@ -7,7 +7,7 @@ import { reducer } from './reducer';
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['auth'],
+  whitelist: ['auth', 'event'],
 };
 
 const persistedReducer = persistReducer(persistConfig, reducer);
@@ -17,6 +17,6 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 export const store = createStore(
   persistedReducer,
-  composeEnhancers(applyMiddleware(thunk))
+  composeEnhancers(applyMiddleware(thunk)),
 );
 export const persistor = persistStore(store);

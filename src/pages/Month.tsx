@@ -2,7 +2,12 @@ import React, { useState } from 'react';
 import dayjs from 'dayjs';
 import ArrowBack from '@material-ui/icons/ArrowBack';
 import ArrowForward from '@material-ui/icons/ArrowForward';
-import { Calendar, Header, Box, Today } from './Style';
+import {
+  Calendar,
+  Header,
+  Box,
+  Today,
+} from '../components/Calendars/Month/Style';
 import {
   ContainerColumn,
   Head,
@@ -11,7 +16,7 @@ import {
   Name,
   Arrow,
   Button,
-} from '../CommonStyle';
+} from '../components/Calendars/CommonStyle';
 
 const DAYSOFWEEK = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
 
