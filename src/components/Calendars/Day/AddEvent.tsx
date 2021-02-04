@@ -18,36 +18,50 @@ const Form = styled.form`
   display: flex;
   justify-content: space-between;
 `;
+
 type Event = {
-  begin?: Date;
-  finish?: Date;
+  begin: Date;
+  finish: Date;
   location: string;
   title: string;
   exist: boolean;
 };
+
+function time(extraTime: number) {
+  return new Date(
+    new Date().setHours(
+      new Date().getHours() + extraTime,
+      Math.ceil(new Date().getMinutes() / 5) * 5,
+    ),
+  );
+}
+
 function AddEvent() {
   const [event, setEvent] = useState<Event>({
-    begin: undefined,
-    finish: undefined,
+    begin: time(0),
+    finish: time(1),
     location: '',
     title: '',
     exist: false,
   });
 
-  useEffect(() => {
-    console.log(event);
-  }, [event]);
+  // useEffect(() => {
+  //   console.log(event);
+  // }, [event]);
 
-  const handleOnChange = (e: any) => {
+  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEvent({ ...event, [e.target.name]: e.target.value });
   };
 
-  const handleOnChoose = (date: any) => {
-    console.log(date);
-    // setEvent({ ...event, [e.target.name]: e.target.value });
+  const handleOnSetBegin = (date: Date) => {
+    setEvent({ ...event, begin: date });
   };
 
-  const onSubmit = (e: any) => {
+  const handleOnSetFinish = (date: Date) => {
+    setEvent({ ...event, finish: date });
+  };
+
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
   };
 
@@ -56,15 +70,13 @@ function AddEvent() {
       <Form onSubmit={onSubmit}>
         <TimePicker
           label="Begin"
-          name="begin"
-          extraTime={0}
-          onChange={handleOnChoose}
+          onChange={handleOnSetBegin}
+          selectedDate={event.begin}
         />
         <TimePicker
           label="Finish"
-          name="finish"
-          extraTime={1}
-          onChange={handleOnChoose}
+          onChange={handleOnSetFinish}
+          selectedDate={event.finish}
         />
         <TextField
           label="Location"

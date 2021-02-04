@@ -8,34 +8,18 @@ import {
 
 type Props = {
   label: string;
-  extraTime: number;
-  name: string;
-  onChange?: any;
+  onChange: (date: any) => void;
+  selectedDate: Date;
 };
 
-function TimePicker({ label, extraTime, name, onChange }: Props) {
-  const [selectedDate, setSelectedDate] = React.useState<Date | null>(
-    new Date(
-      new Date().setHours(
-        new Date().getHours() + extraTime,
-        Math.ceil(new Date().getMinutes() / 5) * 5,
-      ),
-    ),
-  );
-
-  const handleDateChange = (date: Date | null) => {
-    onChange(date);
-    setSelectedDate(date);
-  };
-
+function TimePicker({ label, onChange, selectedDate }: Props) {
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
       <KeyboardTimePicker
         style={{ width: '15%' }}
         label={label}
-        name={name}
         value={selectedDate}
-        onChange={handleDateChange}
+        onChange={onChange}
         KeyboardButtonProps={{
           'aria-label': 'change time',
         }}
