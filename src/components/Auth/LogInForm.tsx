@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import { signIn } from '../../redux/auth/thunks';
 import { AUTH_SUCCESS } from '../../redux/auth/actionTypes';
 
+
 export default function SignIn() {
   const dispatch = useDispatch<any>();
   const [user, setUser] = useState({
@@ -25,27 +26,33 @@ export default function SignIn() {
       }
     });
   };
+  const onClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    
+  };
 
   return (
-    <form className={classes.root} onSubmit={onSubmit}>
-      <TextField
-        required
-        id="mail-login"
-        label="E-mail"
-        type="email"
-        variant="outlined"
-        onChange={(e) => setUser({ ...user, email: e.target.value })}
-      />
-      <TextField
-        required
-        id="password-login"
-        label="Password"
-        type="password"
-        autoComplete="current-password"
-        variant="outlined"
-        onChange={(e) => setUser({ ...user, password: e.target.value })}
-      />
-      <Submit text="Submit" />
-    </form>
+    <>
+      <form className={classes.root} onSubmit={onSubmit}>
+        <TextField
+          required
+          id="mail-login"
+          label="E-mail"
+          type="email"
+          variant="outlined"
+          onChange={(e) => setUser({ ...user, email: e.target.value })}
+        />
+        <TextField
+          required
+          id="password-login"
+          label="Password"
+          type="password"
+          autoComplete="current-password"
+          variant="outlined"
+          onChange={(e) => setUser({ ...user, password: e.target.value })}
+        />
+        <Submit text="Submit" />
+      </form>
+      <button onClick={onClick}>Register</button>
+    </>
   );
 }

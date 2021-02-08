@@ -28,6 +28,11 @@ time, mark, audio, video {
     background:transparent;
 }
 
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
 body {
     line-height:1;
 }

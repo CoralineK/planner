@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import AuthBox from '../components/Auth/AuthBox';
 import { colors } from '../Constants';
@@ -26,12 +26,16 @@ const Title = styled.p`
 `;
 
 function Auth() {
+  const [register, setRegister] = useState(true);
   return (
     <Container>
       <Title>LOVELY PLANNER</Title>
       <Boxes>
-        <AuthBox title="SIGN IN"></AuthBox>
-        <AuthBox title="REGISTER"></AuthBox>
+        {register ? (
+          <AuthBox title="SIGN IN" ></AuthBox>
+        ) : (
+          <AuthBox title="REGISTER" ></AuthBox>
+        )}
       </Boxes>
     </Container>
   );

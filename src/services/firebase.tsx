@@ -1,6 +1,5 @@
 import app from 'firebase/app';
 import 'firebase/auth';
-// import 'firebase/firestore';
 
 const config = {
   apiKey: 'AIzaSyDJBa-KUc1LDNA1TaupoFFcXSQzP54QJYs',
@@ -14,8 +13,5 @@ const config = {
 };
 
 app.apps.length === 0 && app.initializeApp(config);
-
-// export const firestore = app.firestore();
-// export const eventsRef = firestore.collection('events');
 
 export default app;

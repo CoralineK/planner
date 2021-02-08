@@ -9,7 +9,7 @@ const defaultState = {
 
 export default function authReducer(
   state: AuthState = defaultState,
-  action: AuthAction
+  action: AuthAction,
 ): AuthState {
   switch (action.type) {
     case AUTH_LOADING:

@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { colors } from '../../../Constants';
 import TextField from '@material-ui/core/TextField';
 import TimePicker from '../../CommonComponents/TimePicker';
 import ButtonSubmit from '../../CommonComponents/ButtonSubmit';
+import { addEvent } from '../../../services/events';
 
 const Container = styled.div`
   width: 910px;
@@ -45,10 +46,6 @@ function AddEvent() {
     exist: false,
   });
 
-  // useEffect(() => {
-  //   console.log(event);
-  // }, [event]);
-
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEvent({ ...event, [e.target.name]: e.target.value });
   };
@@ -63,6 +60,8 @@ function AddEvent() {
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setEvent({ ...event, exist: true });
+    addEvent(event);
   };
 
   return (
