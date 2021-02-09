@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import TextField from '@material-ui/core/TextField';
 import Submit from '../CommonComponents/ButtonSubmit';
-import { useStyles } from './style';
+import { useStyles, Box, Title, Switch, Reference } from './style';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { signIn } from '../../redux/auth/thunks';
 import { AUTH_SUCCESS } from '../../redux/auth/actionTypes';
-
 
 export default function SignIn() {
   const dispatch = useDispatch<any>();
@@ -26,12 +25,14 @@ export default function SignIn() {
       }
     });
   };
+
   const onClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    
+    history.push('/');
   };
 
   return (
-    <>
+    <Box>
+      <Title>SIGN IN</Title>
       <form className={classes.root} onSubmit={onSubmit}>
         <TextField
           required
@@ -50,9 +51,10 @@ export default function SignIn() {
           variant="outlined"
           onChange={(e) => setUser({ ...user, password: e.target.value })}
         />
+        <Reference>* is required</Reference>
         <Submit text="Submit" />
       </form>
-      <button onClick={onClick}>Register</button>
-    </>
+      <Switch onClick={onClick}>Register</Switch>
+    </Box>
   );
 }

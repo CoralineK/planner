@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import AuthBox from '../components/Auth/AuthBox';
+import SignUp from '../components/Auth/RegisterForm';
+import SignIn from '../components/Auth/LogInForm';
+import { useHistory } from 'react-router-dom';
+
 import { colors } from '../Constants';
 
 const Container = styled.div`
@@ -12,11 +15,6 @@ const Container = styled.div`
   align-items: center;
   background-color: ${colors.background};
 `;
-const Boxes = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
 const Title = styled.p`
   font-family: 'Roboto Slab';
   font-size: 45px;
@@ -26,17 +24,13 @@ const Title = styled.p`
 `;
 
 function Auth() {
-  const [register, setRegister] = useState(true);
+  const history = useHistory();
+  const path = history.location.pathname;
+
   return (
     <Container>
       <Title>LOVELY PLANNER</Title>
-      <Boxes>
-        {register ? (
-          <AuthBox title="SIGN IN" ></AuthBox>
-        ) : (
-          <AuthBox title="REGISTER" ></AuthBox>
-        )}
-      </Boxes>
+      {path === '/login' ? <SignIn /> : <SignUp />}
     </Container>
   );
 }

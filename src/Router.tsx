@@ -11,6 +11,7 @@ export default function Router() {
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={Auth} />
+        <Route exact path="/login" component={Auth} />
         <Navigation>
           <Route path="/home" component={Home} />
           {/* <Route path="/fullyear" component={FullYear} /> */}

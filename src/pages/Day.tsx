@@ -4,7 +4,6 @@ import { ContainerColumn } from '../components/Calendars/CommonStyle';
 import AddEvent from '../components/Calendars/Day/AddEvent';
 import PagingDate from '../components/Calendars/Day/PagingDate';
 import Timetable from '../components/Calendars/Day/Timetable';
-import Event from '../components/Calendars/Day/Event';
 import { colors } from '../Constants';
 import { getEvents } from '../services/events';
 
@@ -24,7 +23,6 @@ function Day() {
       <Calendar>
         <PagingDate />
         <Timetable />
-        <Event />
       </Calendar>
     </ContainerColumn>
   );
