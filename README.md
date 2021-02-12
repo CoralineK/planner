@@ -56,5 +56,5 @@ $ npm start
 
 ### Screenshots
 
-![register](https://github.com/coralinek/planner/blob/master/public/img/register.png?raw=true)
-![day](public/img/day.png)
+![register](images/register.png)
+![day](images/day.png)
