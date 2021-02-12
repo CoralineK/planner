@@ -34,7 +34,7 @@ I am using Redux to state management.
 
 ### Backend:
 
-I used Firebase to authorisation and store data.
+I used Firebase to authorization and store data.
 
 ### Setup
 
