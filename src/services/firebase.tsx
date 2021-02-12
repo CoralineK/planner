@@ -2,14 +2,13 @@ import app from 'firebase/app';
 import 'firebase/auth';
 
 const config = {
-  apiKey: 'AIzaSyDJBa-KUc1LDNA1TaupoFFcXSQzP54QJYs',
-  authDomain: 'planner-85d57.firebaseapp.com',
-  databaseURL: 'https://planner-85d57.firebaseio.com',
-  projectId: 'planner-85d57',
-  storageBucket: 'planner-85d57.appspot.com',
-  messagingSenderId: '435077168151',
-  appId: '1:435077168151:web:f2f60bfb71d1e5cfd83052',
-  measurementId: 'G-3CZP11V1ET',
+  apiKey: process.env.REACT_APP_FIREBASE_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
+  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID,
 };
 
 // app.apps.length === 0 &&
