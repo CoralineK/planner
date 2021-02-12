@@ -32,7 +32,7 @@ I am using Redux to state management.
 
 ### Setup
 
-I created this project only for develop my skills and my own using. If you want to see it localy you need to create project on Firebase and put your personal credentials.
+I created this project only for develop my skills and my own using. If you want to see it locally you need to create project on Firebase and put your personal credentials.
 
 To run this project, install it locally using npm:
 
