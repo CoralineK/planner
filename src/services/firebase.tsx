@@ -12,6 +12,7 @@ const config = {
   measurementId: 'G-3CZP11V1ET',
 };
 
-app.apps.length === 0 && app.initializeApp(config);
+// app.apps.length === 0 &&
+app.initializeApp(config);
 
 export default app;

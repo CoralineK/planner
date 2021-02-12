@@ -18,7 +18,7 @@ export default function SignUp() {
   const classes = useStyles();
   const history = useHistory();
 
-  const onSubmit = (e: any) => {
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     user.password === user.repeatPassword &&
       createAccount(user.email, user.password);

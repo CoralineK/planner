@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import SignUp from '../components/Auth/RegisterForm';
-import SignIn from '../components/Auth/LogInForm';
+import SignUp from '../components/Auth/SignUp';
+import SignIn from '../components/Auth/SignIn';
 import { useHistory } from 'react-router-dom';
 
 import { colors } from '../Constants';
