@@ -7,6 +7,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - [Introduction](#introduction)
 - [Technologies](#technologies)
 - [State managment](#statemanagnent)
+- [Backend](#backend)
 - [Setup](#setup)
 - [Screenshots](#screenshots)
 
@@ -25,10 +26,15 @@ Libraries:
 - React
 - React Router - used to route between multiple pages in the app. Routing logic can be found in the `Router.tsx` file.
 - Styled Components - CSS-in-JS library used to style React apps.
+- Material-UI - React components
 
 ### State management
 
 I am using Redux to state management.
+
+### Backend:
+
+I used Firebase to authorisation and store data.
 
 ### Setup
 
