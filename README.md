@@ -41,8 +41,10 @@ $ git clone https://github.com/CoralineK/pokemon-catcher.git
 $ cd ./planner
 $ npm install
 $ touch .env
+```
 
 Now open .env file and add your credentials:
+
 REACT_APP_FIREBASE_KEY="..."
 REACT_APP_FIREBASE_DOMAIN="..."
 REACT_APP_FIREBASE_PROJECT_ID="..."
@@ -51,6 +53,7 @@ REACT_APP_FIREBASE_SENDER_ID="..."
 REACT_APP_FIREBASE_APP_ID="..."
 REACT_APP_FIREBASE_MEASUREMENT_ID="..."
 
+```
 $ npm start
 ```
 
