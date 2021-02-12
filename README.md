@@ -56,5 +56,8 @@ $ npm start
 
 ### Screenshots
 
+These are examples of how application look like at present:
+
 ![register](images/register.PNG)
-![day](images/day.png)
+
+![day](images/day.PNG)
