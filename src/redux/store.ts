@@ -1,28 +1,22 @@
-import { createStore, applyMiddleware, compose } from 'redux';
-// import { composeWithDevTools } from 'redux-devtools-extension';
-import reduxThunk from 'redux-thunk';
-import { reducer } from './reducer';
-
+import { createStore, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import thunk from 'redux-thunk';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-
-import { reactReduxFirebase } from 'react-redux-firebase';
-import firebase from '../services/firebase';
+import { reducer } from './reducer';
 
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['authReducer'],
+  whitelist: ['auth'],
 };
-
-const createStoreWithFirebase = compose(reactReduxFirebase(firebase))(
-  createStore,
-);
 
 const persistedReducer = persistReducer(persistConfig, reducer);
 
-export const store = createStoreWithFirebase(
+const middleware = [thunk];
+
+export const store = createStore(
   persistedReducer,
-  applyMiddleware(reduxThunk),
+  composeWithDevTools(applyMiddleware(...middleware)),
 );
 export const persistor = persistStore(store);
