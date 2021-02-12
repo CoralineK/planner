@@ -56,5 +56,5 @@ $ npm start
 
 ### Screenshots
 
-![register](images/register.png)
+![register](images/register.PNG)
 ![day](images/day.png)
