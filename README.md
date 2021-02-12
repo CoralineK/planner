@@ -43,7 +43,7 @@ I created this project only for develop my skills and my own using. If you want 
 To run this project, install it locally using npm:
 
 ```
-$ git clone https://github.com/CoralineK/pokemon-catcher.git
+$ git clone https://github.com/CoralineK/planner.git
 $ cd ./planner
 $ npm install
 $ touch .env
