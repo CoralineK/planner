@@ -2,34 +2,36 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { colors, font } from '../../../Constants';
 
-const Container = styled.div`
+const Body = styled.tbody`
   height: 60vh;
   overflow: auto;
+  display: block;
+  border: 0.75px solid ${colors.extra};
 `;
 
-const Body = styled.tbody`
-  height: 50vh;
-  overflow: auto;
-`;
-const Row = styled.tr`
-  height: 24px;
-`;
-const Hour = styled.th`
+const HourBox = styled.th`
   ${font}
-  font-size: 15px;
+  position: relative;
   width: 50px;
-  background-color: ${colors.background};
-  box-shadow: inset 0 0 0 0.75px ${colors.extra};
-  // border: 0.75px solid ${colors.extra};
-  text-align: center;
+`;
+
+const Hour = styled.div`
+  font-size: 12px;
+  line-height: 1;
+  position: absolute;
+  bottom: -5px;
+  right: 10px;
 `;
 
 const Box = styled.td`
-  width: 860px;
-  height: 24px;
-  box-shadow: inset 0 0 0 0.75px ${colors.extra};
-  // border: 0.75px solid ${colors.extra};
-  background-color: ${colors.background};
+  height: 50px;
+  border-bottom: 0.75px solid ${colors.extra};
+`;
+
+const Row = styled.tr`
+  display: table;
+  width: 900px;
+  table-layout: fixed;
 `;
 
 function Timetable() {
@@ -46,7 +48,11 @@ function Timetable() {
 
   const hours: React.ReactElement[] = [];
   for (let i: number = start; i <= end; i++) {
-    hours.push(<Hour colSpan={1}>{format(i)}</Hour>);
+    hours.push(
+      <HourBox colSpan={1}>
+        <Hour>{format(i)}</Hour>
+      </HourBox>,
+    );
   }
 
   return (

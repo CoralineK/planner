@@ -1,4 +1,5 @@
 import React from 'react';
+import { colors } from '../Constants';
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
@@ -99,6 +100,22 @@ hr {
 
 input, select {
     vertical-align:middle;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: ${colors.paper};
+}
+
+::-webkit-scrollbar-thumb {
+  background:  ${colors.extra};
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: ${colors.primary};
 }
 `;
 

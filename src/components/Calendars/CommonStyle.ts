@@ -17,7 +17,11 @@ export const ContainerRow = styled.div`
 `;
 export const Head = styled.thead``;
 export const Body = styled.tbody``;
-export const Row = styled.tr``;
+export const Row = styled.tr`
+  display: table;
+  width: 910px;
+  table-layout: fixed;
+`;
 export const Arrow = styled.th`
   background-color: ${colors.primary};
   width: 50px;
@@ -31,21 +35,9 @@ export const Name = styled.th`
 export const Button = styled.button`
   outline: none;
   border: none;
-  background-color: rgba(0,0,0,0);
+  background-color: rgba(0, 0, 0, 0);
   color: ${colors.extra};
   cursor: pointer;
   width: 24px;
   height: 24px;
-  `;
-
-  // export const Notes = styled.textarea`
-//   display: flex;
-//   background-color: ${colors.background};
-//   outline: none;
-//   border: none;
-//   width: 100%;
-//   padding: 0 5px;
-//   resize: none;
-//   font-family: Roboto;
-//   font-size: 15px;
-// `;
+`;

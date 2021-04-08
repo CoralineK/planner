@@ -8,7 +8,6 @@ const Container = styled.th`
   ${font}
   background-color: ${colors.paper};
   box-shadow: inset 0 0 0 0.75px ${colors.extra};
-  // border: 0.75px solid ${colors.extra};
   padding: 10px;
 `;
 
