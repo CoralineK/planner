@@ -2,7 +2,15 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { colors, font } from '../../../Constants';
 
-const Body = styled.tbody``;
+const Container = styled.div`
+  height: 60vh;
+  overflow: auto;
+`;
+
+const Body = styled.tbody`
+  height: 50vh;
+  overflow: auto;
+`;
 const Row = styled.tr`
   height: 24px;
 `;
@@ -15,6 +23,7 @@ const Hour = styled.th`
   // border: 0.75px solid ${colors.extra};
   text-align: center;
 `;
+
 const Box = styled.td`
   width: 860px;
   height: 24px;
@@ -24,8 +33,8 @@ const Box = styled.td`
 `;
 
 function Timetable() {
-  const [start] = useState<number>(6);
-  const [end] = useState<number>(22);
+  const [start] = useState<number>(0);
+  const [end] = useState<number>(23);
 
   function format(number: number) {
     if (number > 9) {
