@@ -11,12 +11,10 @@ export default function Router() {
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={Auth} />
-        <Route exact path="/login" component={Auth} />
+        <Route exact path="/register" component={Auth} />
         <Navigation>
           <Route path="/home" component={Home} />
-          {/* <Route path="/fullyear" component={FullYear} /> */}
           <Route path="/month" component={Month} />
-          {/* <Route path="/week" component={Week} /> */}
           <Route path="/day" component={Day} />
         </Navigation>
       </Switch>

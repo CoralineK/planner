@@ -5,7 +5,8 @@ export function createAccount(email: string, password: string) {
   return app.auth().createUserWithEmailAndPassword(email, password);
 }
 
-export function signInUser(email: string, password: string) {
+export async function signInUser(email: string, password: string) {
+  await app.auth().setPersistence(app.auth.Auth.Persistence.LOCAL);
   return app.auth().signInWithEmailAndPassword(email, password);
 }
 

@@ -30,7 +30,7 @@ function Auth() {
   return (
     <Container>
       <Title>LOVELY PLANNER</Title>
-      {path === '/login' ? <SignIn /> : <SignUp />}
+      {path === '/register' ? <SignUp /> : <SignIn />}
     </Container>
   );
 }
